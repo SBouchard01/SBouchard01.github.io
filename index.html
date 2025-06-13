@@ -1,12 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<!-- Simon Bouchard - Landing page -->
   <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
+    <!-- Page metadata -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
 
-    I'm going to start working on this project soon.
+    <title>Simon Bouchard - Landing page</title>
+
+    <!-- CSS style -->
+    <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <script type="text/javascript" src="functions.js"></script>
+
+  <body>
+    <div class="blur"></div>
+
+    <div class="split left button" onclick=redirectTo() oncontextmenu=preventDefault()>
+      <div class="centered">
+        <img src="assets/img/Galaxy_white.png" alt="Galaxy">
+
+        <p style="text-indent: -2ch;" data-i18n="science">
+          🧪 Click here for the <b>science</b>
+        </p>
+
+        <p class="nobr" data-i18n="Coming soon">(🚧 Coming soon...)</p>
+      </div>
+    </div>
+
+    <div class="split right button" onclick=redirectTo()>
+      <div class="centered">
+        <img src="assets/img/rabbit_hat.png" alt="Magic wand">
+
+        <p style="text-indent: -2ch;" data-i18n="magic">
+          ✨ Click here for the <b>magic</b>
+        </p>
+        
+        <p class="nobr" data-i18n="Coming soon">(🚧 Coming soon...)</p>
+      </div>
+    </div> 
+
+    <div class="footer">
+      <div class="credits">
+        <p>&copy; Simon Bouchard, 2025</p>
+      </div>
+
+      <div class="flag">
+        <img class="button" src="assets/img/gb_flag.png" alt="fr" data-i18n="flag">
+
+        <div class="lang_menu">
+          <!-- <div class="flag_hover_area"></div> -->
+
+          <div class="newlang button" onclick="changeLanguage('fr_FR')">
+            <p>Français</p>
+            <img src="assets/img/fr_flag.png" alt="fr">
+          </div>
+          
+          <div class="newlang button" onclick="changeLanguage('en_GB')">
+            <p>English</p>
+            <img src="assets/img/gb_flag.png" alt="en">
+          </div>
+
+          <div class="newlang button" onclick="changeLanguage('es_ES')">
+            <p>Español</p>
+            <img src="assets/img/es_flag.png" alt="es">
+          </div>
+
+        </div>
+      </div>
+    </div>
   </body>
-</html>
+</html> 
+
+<script>
+  // Add a timenout before allowing the blur effect to appear
+  setTimeout(function() {
+    document.querySelector('.blur').style.visibility = 'visible';
+  }, 1000);
+</script>   
