@@ -1,0 +1,331 @@
+/* Define some variables */
+:root {
+    --left-default-color: 0, 0, 0; /* Default color for left side */
+    --right-default-color: 5, 80, 30; /* Default color for right side */
+    --footer-color: #292424; /* Color for footer 292424*/
+
+    --button-y-translation: 5px; /* Default translation for button click */
+
+    --left-image: url('https://storage.noirlab.edu/media/archives/images/wallpaper1/noirlab2408a.jpg');
+    --right-image: url('https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg');
+}
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif; /* Font family */
+    color: rgb(255, 255, 255);
+    background-color: #000000;
+}
+
+/* Button styles and actions */
+.button {
+    cursor: pointer; /* Pointer cursor on hover */
+    user-select: none; /* Prevent text selection */
+}
+
+.button:active {
+    transform: translateY(var(--button-y-translation)); /* Move down on click */
+    transition: transform 0.1s ease; /* Smooth transition for the button click */
+}
+
+
+
+
+
+/* Header style */
+.header {
+    height: 8%; /* 10% of the viewport height */
+    width: 100%; /* Full width */
+    position: fixed; /* Fixed position */
+    z-index: 2; /* Sit on top */
+    top: 0; /* Stick at the top of the page*/
+    left: 0; /* Stick at the left of the page*/
+    overflow: hidden; /* Disable horizontal scroll */
+    background-color: var(--footer-color);
+    display: table; /* Use table display for header content */
+}
+
+.header div {
+    display: table-cell; /* Use table-cell display for header content */
+    vertical-align: middle; /* Center content vertically */
+    text-align: center; /* Center content horizontally */
+    color: white; /* Text color */
+    font-size: 24px; /* Font size */
+    font-weight: bold; /* Bold text */
+}
+
+
+
+
+
+/* Footer styles */
+.footer {
+    position: fixed; /* Fixed position */
+    bottom: 0; /* Stick at the bottom of the page */
+    left: 0;
+    width: 100%; /* Full width */
+    height: 5%; /* Height of the footer */
+    z-index: 2; /* Sit on top of the content */
+
+    display: flex;
+    flex-direction: row; /* Stack items horizontally */
+    justify-content: space-between; /* Space between credits and flag */
+
+    background-color: var(--footer-color); /* Background color */
+    color: white; /* Text color */
+    text-align: center; /* Center text */
+    
+}
+
+.footer .credits {
+    position: absolute; /* Use absolute positioning */
+    height: 100%; /* Full height of the footer */
+    width: 90%; /* Width of the credits section */
+    padding-left: 2%;
+
+    display: flex;
+    flex: 2; /* Take up available space */
+
+    align-items: center; /* Center the text vertically */
+    justify-content: left; 
+}
+
+.footer .credits p {
+    margin: 0; /* Remove default margin */
+    font-size: 14px; /* Font size for credits */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+}
+
+/* Language selection */
+.footer .flag {
+    position: absolute; 
+    top: 0;
+    right: 0;
+    height: 100%; 
+    width: auto; /* Width of the flag section */
+    padding: 0 1vw; /* Padding around the flag */
+    
+    display: flex;
+    align-items: center;
+}
+
+/* Image settings in the flag or lang_menu divs */
+.flag img, .lang_menu img {
+    height: 2em;
+    margin: 0;
+    border-radius: 0%; /* Make it circular */
+    object-fit: cover;
+}
+
+.lang_menu {
+    display: none; /* Initially hidden */
+    position: fixed; /* Use fixed positioning */
+    bottom: 5%;
+    right: 0%;
+    max-height: 80%; /* Limit height to 80% of viewport */
+    max-width: 50%; /* Limit width to 50% of viewport */
+    overflow-y: auto; /* Show scroll only when needed, less intrusive */
+    padding-bottom: var(--button-y-translation); /* Prevent scroll bar from appearing due to button translation */
+    
+    flex-direction: column; /* Stack items vertically */
+    
+    background-color: var(--footer-color); /* Background color for the menu */
+    border: 1px solid #ffffff33; /* Border for the menu */
+    border-bottom: none; /* No bottom border */
+}
+
+.lang_menu .newlang {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Stack items horizontally */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between text and flag */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 1em; /* Space between items */
+    padding: 0.2em 1vw 0.2em 0.5em; /* Padding around the lines, no right padding  */
+    background-color: var(--footer-color);
+    border-bottom: 1px solid #ffffff33; /* Bottom border for separation */
+}
+
+.lang_menu .newlang p {
+    flex: 2; /* Take up available space */
+    margin: 0; /* Remove default margin */
+    color: white; /* Text color */
+    text-align: left; /* Align text to the left */
+    overflow-x: hidden; /* Disable horizontal scroll */
+}
+
+.newlang:hover {
+    background-color: #ffffff33; /* Change background color on hover */
+}
+
+.flag_hover_area {
+    position: fixed; 
+    bottom: 0;
+    right: 0;
+    height: 5%; /* Full height of the footer */
+    width: 50%; /* Full width of the footer */
+}
+
+.flag:hover .lang_menu, .lang_menu:hover {
+    display: flex; /* Show the language menu when hovering the flag or the menu itself */
+}
+
+
+
+
+
+/* Logo central */
+.central_logo {
+    display: flex; /* Block display for centering */
+    flex-direction: column;
+
+    position: fixed; /* Position relative to the header */
+    top: 45%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 50%;
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    pointer-events: none; /* Disable pointer events */
+    z-index: 1; /* Sit on top of the splits */
+
+    font-family: 'Courier New', Courier, monospace; 
+    text-align: center;
+    font-size: calc(1em + 1vw); /* Responsive font size */
+}
+
+
+
+/* Create a split class*/
+.split {
+    height: 96%; 
+    width: 50%;
+    position: fixed; /* Fixed position */
+    bottom: 5%; 
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: calc(var(--button-y-translation) + 5px);  /* Padding to avoid hide button translation behind the header */
+    background-size: cover; /* Background image fills up the space */
+    background-position: 50% 50%; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    /* transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for box-shadow and transform */
+}
+
+/* The left side */
+.left {
+    left: 0;
+    background-image: var(--left-image);
+    box-shadow: inset 0 0 0 1000px rgba(var(--left-default-color), 0.5);
+}
+
+.left:hover { /* Hover effect*/
+    box-shadow: inset 0 0 1000px rgba(var(--left-default-color), 0.7);
+}
+
+.left:active { /* Active effect (e.g. on click)*/
+    box-shadow: inset 0 0 100px rgba(var(--left-default-color), 0.9);
+}
+
+/* The right side */
+.right {
+    right: 0;
+    background-image: var(--right-image);
+    box-shadow: inset 0 0 0 1000px  rgba(var(--right-default-color), 0.5);
+}
+
+.right:hover { /* Hover effect */
+    box-shadow: inset 0 0 1000px  rgba(var(--right-default-color), 0.7);
+}
+
+.right:active { /* Active effect (e.g. on click)*/
+    box-shadow: inset 0 0 100px  rgba(var(--right-default-color), 0.9);
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: calc(1em + 1vw); 
+}
+
+/* Centered image */
+.centered img {
+    width: 64%; 
+    height: 64%;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+/* Blur effect for the page */
+.blur {
+    visibility: hidden; /* Initially hidden */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 1;
+    animation: blur_animation_1 1s ease; /* Animation to blur the page */
+    pointer-events: none; /* Disable pointer events to allow interaction with the split sections */
+}
+
+/* no-wrap text */
+.nobr { white-space: nowrap } 
+
+
+
+
+
+/* Script : If height bigger than height, make the sections above each other */
+@media screen and (orientation: portrait) {
+    .central_logo {
+        top: 46%; /* Adjusted for portrait orientation */
+    }
+    .split {
+        width: 100%;
+        height: 47.5%;
+        padding-top: calc(var(--button-y-translation) + 5px); /* Padding to avoid hide button translation behind the header */
+    }
+    
+    .left {
+        left: 0;
+        bottom: 52.5%;
+    }
+    
+    .right {
+        right: 0;
+        bottom: 5%;
+    }
+
+    .blur {
+        animation: blur_animation_2 1s ease; /* Animation to blur the page */
+    }
+
+}
+
+/*Animation : blur-unblur the page*/
+@keyframes blur_animation_1 {
+    from {
+        backdrop-filter: blur(0px);
+    }
+    50% {
+        backdrop-filter: blur(50px);
+    }
+    to {
+        backdrop-filter: blur(0px);
+    }
+}
+
+@keyframes blur_animation_2 { /*Fix bc can't use the same name as the first one*/
+    from {
+        backdrop-filter: blur(0px);
+    }
+    50% {
+        backdrop-filter: blur(50px);
+    }
+    to {
+        backdrop-filter: blur(0px);
+    }
+}
