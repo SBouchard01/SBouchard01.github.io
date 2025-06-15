@@ -13,6 +13,7 @@
 /* General styles */
 body {
     font-family: Arial, sans-serif; /* Font family */
+    font-size: 2.5vmin; /* Responsive font size */
     color: rgb(255, 255, 255);
     background-color: #000000;
 }
@@ -92,7 +93,7 @@ body {
 
 .footer .credits p {
     margin: 0; /* Remove default margin */
-    font-size: 14px; /* Font size for credits */
+    font-size: 0.8em; /* Font size for credits */
     white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden; /* Hide overflow */
     text-overflow: ellipsis; /* Show ellipsis for overflowed text */
@@ -202,7 +203,7 @@ body {
     width: 50%;
     position: fixed; /* Fixed position */
     bottom: 5%; 
-    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow: hidden; /* Disable horizontal scroll */
     padding-top: calc(var(--button-y-translation) + 5px);  /* Padding to avoid hide button translation behind the header */
     background-size: cover; /* Background image fills up the space */
     background-position: 50% 50%; /* Center the background image */
@@ -247,7 +248,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    font-size: calc(1em + 1vw); 
+    font-size: calc(1em + 1vmin); /* Responsive font size */
 }
 
 /* Centered image */
