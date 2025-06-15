@@ -2,5 +2,20 @@
     "science": "🧪 Haz clic aquí para la <b>ciencia</b>",
     "magic": "✨ Haz clic aquí para la <b>magia</b>",
     "Coming soon": "(🚧 Próximamente...)",
-    "flag": "assets/img/es_flag.png"
+    "flag": "assets/img/es_flag.png",
+
+    "credits title": "Créditos",
+
+    "credits": "Créditos de las fotos",
+    "science credits": "<i>Ciencia</i> imagen de fondo por DESI/NOIRLab en ",
+    "magic credits": "<i>Magia</i> imagen de fondo por ",
+
+    "methods credits": "Métodos",
+    "build": "Sitio web construido en HTML, CSS y Javascript utilizando ",
+    "and": " y ",
+    "themes": "Varios temas de jekyll utilizados con inspiración de ",
+    "multi-language support": "Soporte multilingüe inspirado en este ",
+    "post": "post",
+
+    "back": "&larr; Volver"
 }

@@ -2,5 +2,20 @@
     "science": "🧪 Click here for the <b>science</b>",
     "magic": "✨ Click here for the <b>magic</b>",
     "Coming soon": "(🚧 Coming soon...)",
-    "flag": "assets/img/gb_flag.png"
+    "flag": "assets/img/gb_flag.png",
+
+    "credits title": "Credits",
+
+    "credits": "Photo credits",
+    "science credits": "<i>Science</i> background picture by DESI/NOIRLab at ",
+    "magic credits": "<i>Magic</i> background picture by ",
+
+    "methods credits": "Methods",
+    "build": "Website built in HTML, CSS and Javascript using ",
+    "and": " and ",
+    "themes": "Several jekyll themes used with inspiration from ",
+    "multi-language support": "Multi-language support inspired by this ",
+    "post": "post",
+
+    "back": "&larr; Back"
 }

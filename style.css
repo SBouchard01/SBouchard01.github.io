@@ -29,30 +29,66 @@ body {
     transition: transform 0.1s ease; /* Smooth transition for the button click */
 }
 
+/* Link styles */
+a:link {
+    color: #4493f8;
+}
+a:visited {
+    color: #3f84e4;
+}
+
 
 
 
 
 /* Header style */
 .header {
-    height: 8%; /* 10% of the viewport height */
-    width: 100%; /* Full width */
     position: fixed; /* Fixed position */
-    z-index: 2; /* Sit on top */
     top: 0; /* Stick at the top of the page*/
     left: 0; /* Stick at the left of the page*/
+    height: 8%; /* 10% of the viewport height */
+    width: 100%; /* Full width */
+    z-index: 2; /* Sit on top */
     overflow: hidden; /* Disable horizontal scroll */
+    
+    color: white; /* Text color */
     background-color: var(--footer-color);
-    display: table; /* Use table display for header content */
+    border-bottom: 1px solid #ffffff33; /* Bottom border for separation */
+
+    display: flex;
+    flex-direction: row; /* Stack items horizontally */
 }
 
-.header div {
-    display: table-cell; /* Use table-cell display for header content */
-    vertical-align: middle; /* Center content vertically */
-    text-align: center; /* Center content horizontally */
+.header button {
+    border: none; /* No border */
+    font-size: 0.9em; /* Font size for buttons */
+    white-space: nowrap; /* Prevent text wrapping */
+    padding: 1px 1%; /* Padding around the button */
+
+    display: flex;
+    flex: 0; /* Take up equal space */
+    align-items: center; /* Center the text vertically */
+    justify-content: left; 
+    margin: 1em;
+
     color: white; /* Text color */
-    font-size: 24px; /* Font size */
-    font-weight: bold; /* Bold text */
+    background-color: transparent; /* Transparent background */
+}
+
+.header h1 {
+    display: flex;
+    flex: 1; /* Take up more space */
+    align-items: center; /* Center the text vertically */
+    margin: 0;
+    padding-left: 1em;
+
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+
+    border-left: 1px solid #ffffff33; /* Left border for separation */
+    height: 70%; /* Shorten the border so it doesn't touch the edges */
+    align-self: center; /* Center the h1 vertically within the header */
 }
 
 
@@ -73,6 +109,7 @@ body {
     justify-content: space-between; /* Space between credits and flag */
 
     background-color: var(--footer-color); /* Background color */
+    border-top: 1px solid #ffffff33;
     color: white; /* Text color */
     text-align: center; /* Center text */
     
@@ -98,6 +135,7 @@ body {
     overflow: hidden; /* Hide overflow */
     text-overflow: ellipsis; /* Show ellipsis for overflowed text */
 }
+
 
 /* Language selection */
 .footer .flag {
@@ -177,6 +215,28 @@ body {
 
 
 
+/* Credit page body */
+.credit_list {
+    position: fixed; /* Fixed position */
+    top: 8%; /* Below the header */
+    left: 0; 
+    width: 100%; 
+    height: 87%; /* Full height minus header and footer */
+    overflow-y: auto; /* Enable vertical scroll */
+    padding: 1em; /* Padding around the content */
+
+    background-color: var(--footer-color); /* Background color */
+}
+
+.credit_list li {
+    font-size: 1.1em; 
+    list-style-type: "✦ ";
+}
+
+
+
+
+
 /* Logo central */
 .central_logo {
     display: flex; /* Block display for centering */
@@ -194,7 +254,6 @@ body {
     text-align: center;
     font-size: calc(1em + 1vw); /* Responsive font size */
 }
-
 
 
 /* Create a split class*/
@@ -272,8 +331,15 @@ body {
     pointer-events: none; /* Disable pointer events to allow interaction with the split sections */
 }
 
-/* no-wrap text */
-.nobr { white-space: nowrap } 
+
+.nobr { white-space: nowrap } /* no-wrap text */
+
+.separator {
+    width: 90%;
+    margin: 0 auto;
+    align-self: center;
+    border-bottom: 1px solid #ffffff33; /* Bottom border for separation */
+}
 
 
 
