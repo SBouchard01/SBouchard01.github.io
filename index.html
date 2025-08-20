@@ -1,74 +1,32 @@
 ---
+layout: home
+title: Landing page
 ---
-<!DOCTYPE html>
-<html lang="en_GB">
-<!-- Simon Bouchard - Landing page -->
-<head>
-    <!-- Page metadata -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta charset="UTF-8">
+<div class="blur"></div>
 
-    <title>Simon Bouchard - Landing page</title>
-    <link rel="icon" href="assets/img/favicon_circle_light.png" type="image/png" media="(prefers-color-scheme: light)">
-    <link rel="icon" href="assets/img/favicon_circle_dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+<div class="split left button" onclick=redirectTo() oncontextmenu=preventDefault()>
+    <div class="centered">
+        <img src="assets/img/Galaxy_white.png" alt="Galaxy">
 
-    <!-- CSS style -->
-    <link href="assets/css/home.css" rel="stylesheet" type="text/css">
+        <p style="text-indent: -2ch;" data-i18n="science">
+        🧪 Click here for the <b>science</b>
+        </p>
 
-    <!-- Javascript functions -->
-    <script type="text/javascript" src="assets/js/home.js"></script>
-</head>
-
-<body>
-    <div class="blur"></div>
-
-    <div class="split left button" onclick=redirectTo() oncontextmenu=preventDefault()>
-        <div class="centered">
-            <img src="assets/img/Galaxy_white.png" alt="Galaxy">
-
-            <p style="text-indent: -2ch;" data-i18n="science">
-            🧪 Click here for the <b>science</b>
-            </p>
-
-            <p class="nobr" data-i18n="Coming soon">(🚧 Coming soon...)</p>
-        </div>
+        <p class="nobr" data-i18n="Coming soon">(🚧 Coming soon...)</p>
     </div>
+</div>
 
-    <div class="split right button" onclick=redirectTo()>
-        <div class="centered">
-            <img src="assets/img/rabbit_hat.png" alt="Magic wand">
+<div class="split right button" onclick=redirectTo()>
+    <div class="centered">
+        <img src="assets/img/rabbit_hat.png" alt="Magic wand">
 
-            <p style="text-indent: -2ch;" data-i18n="magic">
-            ✨ Click here for the <b>magic</b>
-            </p>
-            
-            <p class="nobr" data-i18n="Coming soon">(🚧 Coming soon...)</p>
-        </div>
-    </div> 
-
-    <div class="footer">
-        <div class="credits">
-                <p>
-                    &copy; Simon Bouchard, 2025 - <a data-i18n="credits" href="credits.html">Photo Credits</a>
-                </p>
-        </div>
-
-      <div class="flag">
-            <img class="button" src="assets/img/lang/en.png" data-i18n="flag">
-
-            <div class="lang_menu">
-                <!-- <div class="flag_hover_area"></div> -->
-                {% for lang in site.data.lang %}
-                <div class="newlang button" onclick="changeLanguage('{{ lang.code }}')">
-                    <p>{{ lang.name }}</p>
-                    <img src="assets/img/lang/{{ lang.code }}.png" alt="{{ lang.code }}">
-                </div>
-                {% endfor %}
-            </div>
-        </div>
+        <p style="text-indent: -2ch;" data-i18n="magic">
+        ✨ Click here for the <b>magic</b>
+        </p>
+        
+        <p class="nobr" data-i18n="Coming soon">(🚧 Coming soon...)</p>
     </div>
-</body>
-</html> 
+</div> 
 
 <script>
   // Add a timenout before allowing the blur effect to appear
