@@ -1,0 +1,22 @@
+[data-theme="dark"] .only-on-dark {
+  display: inline-flex !important;
+}
+[data-theme="dark"] .only-on-light {
+  display: none !important;
+}
+
+[data-theme="light"] .only-on-dark {
+  display: none !important;
+}
+[data-theme="light"] .only-on-light {
+  display: inline-flex !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .only-on-dark {
+    display: inline-flex !important;
+  }
+  .only-on-light {
+    display: none !important;
+  }
+}
