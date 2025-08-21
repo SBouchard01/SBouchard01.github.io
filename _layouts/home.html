@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en_GB">
+<!-- Simon Bouchard - Landing page -->
+<head>
+    <!-- Page metadata -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta charset="UTF-8">
+
+    <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
+    <link rel="icon" href="assets/img/logos/favicon_circle_light.png" type="image/png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="assets/img/logos/favicon_circle_dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+
+    <!-- CSS style -->
+    <link href="assets/css/home.css" rel="stylesheet" type="text/css">
+
+    <!-- Javascript functions -->
+    <script type="text/javascript" src="assets/js/home.js"></script>
+</head>
+
+<body>
+    
+    {{ content }}
+
+    <div class="footer">
+        <div class="credits">
+            <p>
+                &copy; Simon Bouchard, 2025
+                {% if page.url != "/credits.html" %} 
+                - <a data-i18n="credits" href="credits.html">Photo Credits</a>
+                {% endif %}
+            </p>
+        </div>
+
+        <div class="flag">
+            <img class="button" src="assets/img/lang/en.png" data-i18n="flag">
+
+            <div class="lang_menu">
+                <!-- <div class="flag_hover_area"></div> -->
+                {% for lang in site.data.lang %}
+                <div class="newlang button" onclick="changeLanguage('{{ lang.code }}')">
+                    <p>{{ lang.name }}</p>
+                    <img src="assets/img/lang/{{ lang.code }}.png" alt="{{ lang.code }}">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>

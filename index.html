@@ -1,82 +1,32 @@
-<!DOCTYPE html>
-<html lang="en_GB">
-<!-- Simon Bouchard - Landing page -->
-  <head>
-    <!-- Page metadata -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta charset="UTF-8">
+---
+layout: home
+title: Landing page
+---
+<div class="blur"></div>
 
-    <title>Simon Bouchard - Landing page</title>
-    <link rel="icon" href="assets/img/favicon_circle_light.png" type="image/png" media="(prefers-color-scheme: light)">
-    <link rel="icon" href="assets/img/favicon_circle_dark.png" type="image/png" media="(prefers-color-scheme: dark)">
-
-    <!-- CSS style -->
-    <link href="style.css" rel="stylesheet" type="text/css">
-
-    <!-- Javascript functions -->
-    <script type="text/javascript" src="functions.js"></script>
-  </head>
-
-  <body>
-    <div class="blur"></div>
-
-    <div class="split left button" onclick=redirectTo() oncontextmenu=preventDefault()>
-      <div class="centered">
+<div class="split left button" onclick=redirectTo() oncontextmenu=preventDefault()>
+    <div class="centered">
         <img src="assets/img/Galaxy_white.png" alt="Galaxy">
 
         <p style="text-indent: -2ch;" data-i18n="science">
-          🧪 Click here for the <b>science</b>
+        🧪 Click here for the <b>science</b>
         </p>
 
         <p class="nobr" data-i18n="Coming soon">(🚧 Coming soon...)</p>
-      </div>
     </div>
+</div>
 
-    <div class="split right button" onclick=redirectTo()>
-      <div class="centered">
+<div class="split right button" onclick=redirectTo()>
+    <div class="centered">
         <img src="assets/img/rabbit_hat.png" alt="Magic wand">
 
         <p style="text-indent: -2ch;" data-i18n="magic">
-          ✨ Click here for the <b>magic</b>
+        ✨ Click here for the <b>magic</b>
         </p>
         
         <p class="nobr" data-i18n="Coming soon">(🚧 Coming soon...)</p>
-      </div>
-    </div> 
-
-    <div class="footer">
-      <div class="credits">
-        <p>
-          &copy; Simon Bouchard, 2025 - <a data-i18n="credits" href="credits.html">Photo Credits</a>
-        </p>
-      </div>
-
-      <div class="flag">
-        <img class="button" src="assets/img/gb_flag.png" alt="fr" data-i18n="flag">
-
-        <div class="lang_menu">
-          <!-- <div class="flag_hover_area"></div> -->
-
-          <div class="newlang button" onclick="changeLanguage('fr_FR')">
-            <p>Français</p>
-            <img src="assets/img/fr_flag.png" alt="fr">
-          </div>
-          
-          <div class="newlang button" onclick="changeLanguage('en_GB')">
-            <p>English</p>
-            <img src="assets/img/gb_flag.png" alt="en">
-          </div>
-
-          <div class="newlang button" onclick="changeLanguage('es_ES')">
-            <p>Español</p>
-            <img src="assets/img/es_flag.png" alt="es">
-          </div>
-
-        </div>
-      </div>
     </div>
-  </body>
-</html> 
+</div> 
 
 <script>
   // Add a timenout before allowing the blur effect to appear
