@@ -1,0 +1,90 @@
+{% assign loop_on = include.loop_on | default: site.products %}
+<div class="columns is-mobile is-multiline is-centered">
+    {% for product in loop_on reversed %}
+    {% unless product.hide %}
+    <div class="product column is-one-fifth-widescreen is-one-third-desktop is-one-third-tablet is-half-mobile">
+        <div class="card has-text-centered">
+            {% assign url = product.url | remove_first: "/" %}
+            <div class="card-image">
+                <a href="{{ url }}">
+                    <figure class="image is-1by1">
+                        <img
+                            src="{{ product.images[0].url }}"
+                            alt="{{ product.images[0].alt }}"
+                            style="object-fit: cover;"
+                        />
+                    </figure>
+                </a>
+            </div>
+
+            <div class="card-content">
+                <div class="text-content">
+                    {% if product.author %}
+                    <p class="is-size-7">{{ product.author }}</p>
+                    {% else %}
+                    <p class="is-size-7">-</p>
+                    {% endif %}
+                    <p class="has-text-weight-bold">
+                        <a class="has-text-text" href="{{ url }}">
+                            <span class="link-on-hover">{{ product.title | upcase }}</span>
+                        </a>
+                    </p>
+
+                    <div class="price">
+                    {% if product.promo %}
+                        <span><s>{{ product.price }}</s></span>
+                        <span class="has-text-weight-bold has-text-link">{{ product.promo }}</span> 
+                    {% else %}
+                        <span class="has-text-weight-bold has-text-link">{{ product.price }}</span>
+                    {% endif %}
+                    </div>
+                </div>
+
+                {% if product.link == "direct" %}
+                    {% assign trigger_class = "js-modal-trigger" %}
+                    {% assign link = "javascript:void(0);" %}
+                    {% assign target = "_self" %}
+                {% elsif product.link %}
+                    {% assign trigger_class = "" %}
+                    {% assign link = product.link %}
+                    {% assign target = "_blank" %}
+                {% else %}
+                    {% assign trigger_class = "" %}
+                    {% assign link = "javascript:void(0);" %}
+                    {% assign target = "_self" %}
+                {% endif %}
+
+                {% if product.out-of-stock %}
+                <a class="button is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" target="{{ target }}" disabled>
+                    <span class="icon-text is-flex-wrap-nowrap is-size-7-mobile is-size-7-desktop" style="display: flex; align-items: center;">
+                        <span class="icon">
+                            <i class="fas fa-box"></i>
+                        </span>
+                        <span data-i18n="Out of stock">Out of stock</span>
+                    </span>
+                </a>
+                {% elsif product.preorder %}
+                <a class="button is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" target="{{ target }}">
+                    <span class="icon-text is-flex-wrap-nowrap is-size-7-mobile is-size-7-desktop" style="display: flex; align-items: center;">
+                        <span class="icon">
+                            <i class="far fa-clock"></i>
+                        </span>
+                        <span data-i18n="Pre-order">Pre-order</span>
+                    </span>
+                </a>
+                {% else %}
+                <a class="button is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" target="{{ target }}">
+                    <span class="icon-text is-flex-wrap-nowrap is-size-7-mobile is-size-7-desktop" style="display: flex; align-items: center;">
+                        <span class="icon">
+                            <i class="fas fa-basket-shopping"></i>
+                        </span>
+                        <span data-i18n="Buy now">Buy now</span>
+                    </span>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endunless %}
+    {% endfor %}
+</div>

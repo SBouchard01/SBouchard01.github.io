@@ -1,0 +1,127 @@
+:root {
+    --bulma-scheme-h: 148;
+    --bulma-scheme-s: 45%;
+    --bulma-link-h: 45;
+    --bulma-link-s: 100%;
+    --bulma-link-l: 40%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.pop-up {
+    position: fixed;
+    bottom: -50%; 
+    z-index: 1000;
+    -webkit-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pop-up.left {
+    bottom: 2%;
+    left: 2%;
+}
+
+.pop-up.is-active {
+    bottom: 2%;
+}
+
+.scroll-to-top {
+    right: 2%; 
+    width: 50px;
+    height: 50px;
+}
+
+::-webkit-datetime-edit {
+    cursor: text;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.link-on-hover:hover {
+    color: var(--bulma-link);
+    cursor: pointer;
+}
+
+.product,
+.product .card {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product .card .card-content {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product .card .card-content .text-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.price {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.product:hover .price {
+    visibility: hidden;
+    transition: visibility 0.1s;
+}
+
+.product .price span {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.product .button {
+    display: flex;
+    position: absolute;
+    bottom: -50%;
+    left: 50%;
+    width: fit-content;
+    transform: translateX(-50%);
+}
+
+.product:hover .button {
+    bottom: 1rem;
+    transition: bottom 0.4s cubic-bezier(0.51, 0.51, 0, 1);
+}
+
+@media screen and (max-width: 1024px) {
+    .product .button {
+        position: relative;
+        transition: none;
+        bottom: 0;
+        margin-top: 1rem;
+    }
+
+    .product:hover .button {
+        bottom: 0;
+    }
+
+    .product:hover .price {
+        visibility: visible;
+        transition: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 20px;
+    }
+}

@@ -1,0 +1,456 @@
+---
+layout: magic
+title: Magic
+---
+
+<!-- Intro Hero with image -->
+<section class="hero is-large is-dark" style="background-image: url('https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat;">
+    <div class="hero-body" style="background-color: rgba(0, 0, 0, 0.5);; backdrop-filter: blur(1px);">
+        <div class="container has-text-centered">
+            <p class="title is-1 mb-2" data-i18n="Home title">Discover my work in magic</p>
+            <p class="subtitle is-4 mb-5 mx-6" data-i18n="Home subtitle">
+                Magician for over 10 years, I specialize in creating unique and engaging <span class="has-text-link">magical experiences</span>.
+            </p>
+            <div class="buttons is-centered">
+                <a class="button is-link is-medium is-dark" href="#about">
+                    <span class="icon is-small">
+                        <i class="fas fa-info-circle"></i>
+                    </span>
+                    <span data-i18n="Learn more">Learn more</span>
+                </a>
+                <a class="button is-link is-medium is-light" href="#contact">
+                    <span class="icon is-small">
+                        <i class="fas fa-magic"></i>
+                    </span>
+                    <span data-i18n="Book a show">Book a Show</span>
+                </a>
+                {% if site.tour.size > 0 %}
+                <a class="button is-link is-medium is-dark is-hidden" href="magic/tour">
+                    <span class="icon is-small">
+                        <i class="fas fa-calendar-alt"></i>
+                    </span>
+                    <span data-i18n="View events">View Events</span>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- About - Bio + Prestation types -->
+<div class="section" id="about">
+    <div class="container">
+        <div class="content">
+            <p class="title is-2" data-i18n="About me">About me</p>
+            <div class="columns">
+                <div class="column is-one-third">
+                    <figure class="card card-image image is-4by5">
+                        <img src="https://bulma.io/assets/images/placeholders/480x640.png" alt="About me">
+                    </figure>
+                </div>
+                <div class="column is-two-thirds">
+                    <div class="is-size-5">
+                        {% include static_translations.html name = "Bio1" %}
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    <div class="subtitle is-5">
+                        {% include static_translations.html name = "Bio2" %}
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <figure class="card card-image image is-4by5">
+                        <img src="https://bulma.io/assets/images/placeholders/480x640.png" alt="About me">
+                    </figure>
+                </div>
+            </div>
+
+            {% if site.data.magic.prestations.size > 0 %}
+            <p class="title is-2" data-i18n="Prestations">Prestations</p>
+
+            <div class="columns is-multiline">
+            {% for prestation in site.data.magic.prestations %}
+                <div class="column is-one-third">
+                    <div class="box" style="height: 100%;">
+                        <h3 class="title is-4 mb-2">
+                            <span class="icon-text">
+                                <span class="icon px-3">
+                                    <i class="{{ prestation.icon }}"></i>
+                                </span>
+                                <span class="px-2" data-i18n="{{ prestation.title }}/title">{{ prestation.title }}</span>
+                            </span>
+                        </h3>
+                        <p class="subtitle is-6" data-i18n="{{ prestation.title }}/description">{{ prestation.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% if site.reviews.size > 0 %}
+<hr>
+
+<!-- Avis -->
+<section class="hero">
+    <div class="hero-body has-text-centered">
+        <p class="title mb-5" data-i18n="Customer reviews">Customer reviews</p>
+
+        <div class="carrousel" style="width: 65vw;" data-time="8000">
+            <div class="scroll-markers"></div>
+            <div class="prev button is-rounded">
+                <span class="icon is-small">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+            </div>
+            <div class="next button is-rounded">
+                <span class="icon is-small">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+            </div>
+            <div class="slideshow">
+                {% for review in site.reviews %}
+                {% assign rating = review.rating %}
+                <div class="slide card" id="slide-{{ forloop.index }}">
+                    <div class="card-content">
+                        <!-- <div class="content"> -->
+                            <p class="mb-3">
+                                <span class="icon is-small">
+                                    {% for i in (1..5) %}
+                                        {% if i <= rating %}
+                                            <i class="fas fa-star"></i>
+                                        {% else %}
+                                            <i class="far fa-star"></i>
+                                        {% endif %}
+                                    {% endfor %}
+                                </span>
+                            </p>
+                            <p class="is-size-5 mb-3">
+                                <i class="fas fa-quote-left"></i>
+                                {{ review.content | remove: '<p>' | remove: '</p>' }}
+                                <i class="fas fa-quote-right"></i>
+                            </p>
+                            <p class="is-size-7">
+                                <span class="has-text-weight-bold">{{ review.author }}</span>
+                                <br>
+                                <span data-i18n="{{ review.type }}">{{ review.type }}</span>
+                            </p>
+                        <!-- </div> -->
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+<!-- Brand + Stats -->
+{% if site.data.magic.brands.size > 0 or site.data.magic.stats.size > 0 %}
+<section class="hero is-black">
+    <div class="hero-body has-text-centered">
+        {% if site.data.magic.brands.size > 0 %}
+        <p class="title mb-2" data-i18n="They trust me">They trust me</p>
+        <p class="subtitle" data-i18n="Partners and brands I worked with">Partners and brands I worked with</p>
+
+        <div class="slider" style="--width: 200px; --height: 150px; --imageQuantity: {{ site.data.magic.brands.size }}">
+            <div class="list">
+                {% for brand in site.data.magic.brands %}
+                {% if brand.is_dark %}{% assign class="notification is-light" %}{% else %}{% assign class="" %}{% endif %}
+                <a class="item {{ class }}" {% if brand.url %}href="{{ brand.url }}" target="_blank"{% endif %}>
+                    <img src="{{ brand.logo }}" alt="{{ brand.name }}">
+                </a>
+                {% endfor %}
+                <!-- Duplicate items for seamless looping -->
+                {% for brand in site.data.magic.brands %}
+                {% if brand.is_dark %}{% assign class="notification is-light" %}{% else %}{% assign class="" %}{% endif %}
+                <a class="item {{ class }}" {% if brand.url %}href="{{ brand.url }}" target="_blank"{% endif %}>
+                    <img src="{{ brand.logo }}" alt="{{ brand.name }}">
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <br>
+        {% endif %}
+
+        {% if site.data.magic.stats.size > 0 %}
+        <div class="columns is-vcentered">
+            <div class="column is-narrow">
+                <div class="title is-4" data-i18n="Magic with numbers:">Magic with numbers:</div>
+            </div>
+            <div class="column">
+                <div class="grid">
+                    {% for stat in site.data.magic.stats %}
+                    <div class="cell">
+                        <div class="block">
+                            <p class="icon is-large">
+                                <i class="fas fa-2x {{ stat.icon }}"></i>
+                            </p>
+                            <p class="title is-4">{{ stat.value }}</p>
+                            <p class="subtitle is-6" data-i18n="{{ stat.name }}">{{ stat.name }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% else %}
+<hr>
+{% endif %}
+
+
+<!-- Contact -->
+<section class="hero" id="contact">
+    <div class="hero-body has-text-centered">
+        <p class="title is-2 mb-2" data-i18n="Contact me">Contact me</p>
+        <p class="subtitle" data-i18n="Add a touch of magic to your events!">Add a touch of magic to your events!</p>
+
+        <div class="columns has-text-left">
+            <div class="column">
+                <div class="card">
+                    <fieldset disabled>
+                    <div class="card-content">
+                        <div class="fixed-grid has-2-cols">
+                            <div class="grid is-gap-3">
+                                <div class="cell">
+                                    <div class="field">
+                                        <label class="label" data-i18n="Name *">Name *</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="e.g Alex Smith">
+                                        </div>
+                                        <p class="help" data-i18n="This field is mandatory">This field is mandatory</p>
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <div class="field">
+                                        <label class="label" data-i18n="Email *">Email *</label>
+                                        <div class="control">
+                                            <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                                        </div>
+                                        <p class="help" data-i18n="This field is mandatory">This field is mandatory</p>
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <div class="field">
+                                        <label class="label" data-i18n="Phone number">Phone number</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="e.g. +1 234 567 890">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <div class="field">
+                                        <label class="label" data-i18n="Event type">Event type</label>
+                                        <p class="control is-expanded">
+                                            <div class="select is-fullwidth">
+                                                <select>
+                                                    <option data-i18n="Select an option">Select an option</option>
+                                                    {% for prestation in prestations %}
+                                                    <option data-i18n="{{ prestation.name }}/name">{{ prestation.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="cell is-col-span-2">
+                                    <div class="field">
+                                        <label class="label" data-i18n="Date">Date</label>
+                                        <div class="control is-expanded">
+                                            <input class="input is-fullwidth" type="date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell is-col-span-2">
+                                    <div class="field">
+                                        <label class="label" data-i18n="Message *">Message *</label>
+                                        <div class="control">
+                                            <textarea class="textarea is-fullwidth" placeholder="Write your message here..."></textarea>
+                                        </div>
+                                        <p class="help" data-i18n="This field is mandatory">This field is mandatory</p>
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <div class="field">
+                                        <div class="control">
+                                            <label class="checkbox">
+                                                <input type="checkbox">
+                                                    <span data-i18n="I agree to the terms and conditions">
+                                                        I agree to the <a href="#">terms and conditions</a>
+                                                    </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <div class="field">
+                                        <div class="control">
+                                            <label class="checkbox">
+                                                <input type="checkbox">
+                                                    <span data-i18n="I want to receive updates via email">
+                                                        I want to receive updates via email
+                                                    </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell is-col-span-2">
+                                    <div class="field">
+                                        <div class="control is-expanded">
+                                            <button class="button is-fullwidth is-medium is-link is-light">
+                                                <span class="icon is-small">
+                                                    <i class="far fa-paper-plane"></i>
+                                                </span>
+                                                <span data-i18n="Submit">Submit</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="card-content has-text-white">
+                        <div class="title is-4" data-i18n="Contact information">Contact information</div>
+                        <div class="icon-text is-align-items-center mb-5">
+                            <span class="icon is-large">
+                                <i class="fas fa-lg fa-envelope"></i>
+                            </span>
+                            <span>
+                                <span class="has-text-weight-bold" data-i18n="Email">Email</span>
+                                <br>
+                                <a class="has-text-text is-underlined" href="mailto:{{ site.magic.email }}">{{ site.magic.email }}</a>
+                            </span>
+                        </div>
+                        
+                        <div class="icon-text is-align-items-center mb-5">
+                            <span class="icon is-large">
+                                <i class="fas fa-lg fa-phone"></i>
+                            </span>
+                            <span>
+                                <p class="has-text-weight-bold" data-i18n="Phone number">Phone number</p>
+                                <a class="has-text-text is-underlined" href="tel:{{ site.magic.phone }}">{{ site.magic.phone }}</a>
+                            </span>
+                        </div>
+                        
+                        <div class="notification">
+                            <p class="has-text-weight-bold mb-2" data-i18n="Responsiveness guarantee">Responsiveness guarantee</p>
+                            <p class="has-text-text is-size-7" data-i18n="Guarantee content">I will try to get back to you under 24 hours, or as soon as I can. Every message is important to me!</p>
+                        </div>
+                        <hr class="has-background-link-30">
+                        <div class="content">
+                            <p class="has-text-weight-bold mb-2" data-i18n="Social">Social</p>
+                            {% for social in site.data.social %}
+                                {% if social.magic %}
+                                <a class="button is-hovered mr-2" href="{{ social.url }}" target="_blank" title="{{ social.name | capitalize }}">
+                                    <span class="icon">
+                                        <i class="fab {{ social.icon }}"></i>
+                                    </span>
+                                </a>
+                                {% endif %}
+                            {% endfor %}
+                            <p class="has-text-text is-size-7 mt-2" data-i18n="Social footer">Discover my performances and backstage on social networks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Gallery -->
+{% if site.data.magic.gallery.size > 0 %}
+<section class="hero is-black" id="gallery">
+    <div class="hero-body columns is-vcentered" style="width: 100%;">
+        <div class="column has-text-centered is-narrow">
+            <p class="title" data-i18n="Gallery">Gallery</p>
+        </div>
+        <div class="column" style="height: 100%;">
+
+            <link rel="stylesheet" href="assets/css/gallery.css">
+
+            <div class="gallery js-modal-trigger" data-target="gallery-modal" >
+                {% for image in site.data.magic.gallery limit: 20 %}
+                    <img 
+                    src="{{ image.url }}" 
+                    alt="{{ image.alt }}" 
+                    style="cursor: zoom-in;"
+                    onclick="gotoSlidefromID('gallery-carrousel', {{ forloop.index }}, manual = true)"
+                    >
+                {% endfor %}    
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Gallery modal -->
+<div class="modal" id="gallery-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content" style="overflow: visible;">
+        <div class="carrousel" data-time="100000000" id="gallery-carrousel">
+            <div class="scroll-markers"></div>
+            <div class="prev button is-rounded">
+                <span class="icon is-small">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+            </div>
+            <div class="next button is-rounded">
+                <span class="icon is-small">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+            </div>
+            <div class="prev button is-small is-rounded is-hidden-desktop is-hidden-tablet" style="left: 2.5em; opacity: 0.7;">
+                <span class="icon is-small">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+            </div>
+            <div class="next button is-small is-rounded is-hidden-desktop is-hidden-tablet" style="right: 2.5em; opacity: 0.7;">
+                <span class="icon is-small">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+            </div>
+            <div class="slideshow">
+                {% for image in site.data.magic.gallery %}
+                <div class="slide" id="slide-{{ forloop.index }}">
+                    <figure class="image">
+                        <img src="{{ image.url }}" alt="{{ image.alt }}">
+                        {% if image.caption or image.credit %}
+                        <figcaption class="has-text-centered">
+                            {{ image.caption }}
+                            {% if image.date and image.caption %} - {% endif %}
+                            {{ image.date }}
+                            {% if image.credit %}
+                            <p class="has-text-centered is-size-7 mt-2">
+                                <span>© </span> 
+                                <span data-i18n="Photo by">Photo by</span>
+                                <span> {{ image.credit }}</span>
+                            </p>
+                            {% endif %}
+                        </figcaption>
+                        {% endif %}
+                    </figure>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>

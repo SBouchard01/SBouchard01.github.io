@@ -1,0 +1,89 @@
+{
+    "lang": "Français",
+    "Booking-Contact": "Réservation / Contact",
+
+    "Menu": "Menu",
+    "Home": "Accueil",
+    "About": "À propos",
+    "Contact": "Contact",
+    "Shop": "Boutique",
+
+    "Home title": "Découvrez mon travail en magie",
+    "Home subtitle": "Magicien depuis plus de 10 ans, je me spécialise dans la création d'<span class=\"has-text-link\">expériences magiques</span> uniques et engageantes.",
+    "Learn more": "En savoir plus",
+    "Book a show": "Obtenir un devis",
+    "View events": "Futurs événements",
+
+    "About me": "À propos de moi",
+    "Prestations": "Prestations",
+
+    "Consulting": {
+        "title": "Consultant",
+        "description": ""
+    },
+    "Close-Up Magic": {
+        "title": "Magie de proximité",
+        "description": ""
+    },
+    "Digital Magic": {
+        "title": "Magie digitale",
+        "description": ""
+    },
+    "Impromptu Magic": {
+        "title": "Magie improvisée",
+        "description": ""
+    },
+
+    "Customer reviews": "Avis clients",
+
+    "They trust me": "Ils me font confiance",
+    "Partners and brands I worked with": "Partenaires et marques avec qui j'ai travaillé",
+
+    "Magic with numbers:": "Ma magie avec des nombres :",
+    "Years of experience": "Années d'expérience",
+    "Collaborations with magicians": "Collaborations avec des magiciens",
+    "Magic styles mastered": "Styles de magie maîtrisés",
+    "Languages spoken": "Langues parlées",
+
+    "Contact me": "Contactez-moi",
+    "Add a touch of magic to your events!": "Ajoutez une touche de magie à vos événements!",
+
+    "Name *": "Nom *",
+    "Email *": "E-mail *",
+    "Message *": "Message *",
+    "Phone number": "Numéro de téléphone",
+    "Event type": "Type d'événement",
+    "Select an option": "Sélectionnez une option",
+    "Date": "Date",
+    "This field is mandatory": "Ce champ est obligatoire",
+    "I agree to the terms and conditions": "J'accepte les <a href=\"#\">termes et conditions</a>",
+    "I want to receive updates via email": "Je souhaite rester informé par e-mail",
+    "Submit": "Envoyer",
+
+    "Contact information": "Informations de contact",
+    "Email": "E-mail",
+    "Responsiveness guarantee": "Garantie de réactivité",
+    "Guarantee content": "Je m'engage à répondre à toutes les demandes dans un délai de 24 heures dans la mesure du possible, ou dès que je le pourrai. Chaque requête m'est importante !",
+    "Social": "Réseaux sociaux",
+    "Social footer": "Découvrez mes performances et coulisses sur les réseaux sociaux",
+
+    "Gallery": "Galerie",
+    "Photo by": "Photo par",
+
+
+
+    "Upcoming Shows and Events": "Prochains spectacles et événements",
+    "No upcoming events": "Aucun événement à venir, veuillez revenir plus tard.",
+    "Book": "Réserver",
+    "Coming Soon": "À venir",
+    "Full": "Complet",
+
+    "Shop subtitle": "Quelques trucs de magie sympas sur lesquels j'ai travaillé !",
+    "Direct sale": "Vente directe",
+    "Direct sale message": "Ce produit est une vente directe. Envoyez-moi un message si vous êtes intéressé !",
+    "Get in touch": "Contactez-moi",
+    "Customer Reviews": "Avis clients",
+    "Out of stock": "Rupture de stock",
+    "Pre-order": "Précommande",
+    "Buy now": "Acheter"
+}

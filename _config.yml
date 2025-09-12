@@ -1,3 +1,41 @@
 title: Simon Bouchard
+footer: "© 2025 Simon Bouchard. All rights reserved."
 
 css_theme: dark
+
+collections:
+  tour:
+  reviews:
+  products:
+    output: true
+    sort_by: date
+    permalink: magic/shop/products/:path/
+  static:
+    sort_by: lang
+
+defaults:
+- scope:
+    path: ""
+    type: "products"
+  values:
+    layout: "product"
+
+jekyll-archives:
+  products:
+    enabled:
+      - categories
+    layout: shop
+    permalinks:
+      categories: magic/shop/:collection/:name/
+
+magic:
+  email: simonbouchard47@gmail.com
+  phone: +33 6 30 15 51 65 
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-archives-v2
+
+exclude:
+  - README.md
+  - LICENSE

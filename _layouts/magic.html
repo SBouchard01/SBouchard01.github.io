@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html data-theme="{{ site.css_theme }}">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta charset="UTF-8">
+
+    <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
+
+    <base href="{{ site.baseurl | append: '/' }}"> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/css/infinite_slider.css">
+    <link rel="stylesheet" href="assets/css/bulma_magic.css">
+    <link rel="stylesheet" href="assets/css/carrousel.css">
+    <!-- <link rel="stylesheet" href="assets/css/theme.css"> -->
+    <script src="assets/js/bulma.js"></script>
+    <script src="assets/js/href.js"></script>
+    <script src="assets/js/lang.js"></script>
+    <!-- <script src="assets/js/theme.js"></script> -->
+    <script src="assets/js/dropdown.js" defer></script>
+    <script src="assets/js/scroll_top.js" defer></script>
+    <script src="assets/js/carrousel.js" defer></script>
+</head>
+
+<body>
+    <nav class="navbar has-shadow">
+
+        <div class="is-hidden-desktop mb-4" style="flex-grow: 1; justify-content: center;">
+            <div class="columns is-multiline is-centered is-vcentered is-mobile mx-0">
+                <div class="column is-full is-flex is-justify-content-center">
+                    <img src="assets/img/logos/logo_magic.png" alt="Logo" width="160vw">
+                </div>
+
+                <!-- Bugged but lol -->
+                <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                    <span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    </span>
+                    <span class="has-text-link">Menu</span>
+                </a> -->
+
+                <button class="column is-full pt-0 pb-0" data-target="navMenu" onclick="toggleElement.call(this)">
+                    <div class="button" style="border: none; background: transparent;">
+                        <a class="navbar-burger" inert>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                        <span class="has-text-link" data-i18n="Menu">Menu</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+        
+        <div class="navbar-menu" id="navMenu" style="flex-grow: 1; justify-content: center;">
+            {% assign num = site.data.magic.navbar.size | plus: 1 | divided_by: 2.0 | ceil %}
+            {% for item in site.data.magic.navbar %}
+                {% if item.name == "logo" %}
+                    <img class="ml-5 mr-5 is-hidden-touch" src="assets/img/logos/logo_magic.png" alt="Logo" width="160vw">
+                {% else %}
+                <a class="navbar-item pl-6 pr-6 is-flex is-justify-content-center has-text-white has-text-weight-bold" href="{{ item.url }}" data-i18n="{{ item.name }}">
+                    {{ item.name }}
+                </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </nav>
+
+    {{ content }}
+
+    {% include footer.html %}
+
+    <a class="button is-rounded pop-up left is-link" style="height: 50px;" href="magic/#contact">
+        <span data-i18n="Booking-Contact">Booking / Contact</span>
+    </a>
+
+    <a class="button pop-up scroll-to-top is-link is-outlined" href="#">
+        <div class="content">
+            <i class="fas fa-lg fa-angle-up"></i>
+        </div>
+    </a>
+
+    
+</body>
+</html>

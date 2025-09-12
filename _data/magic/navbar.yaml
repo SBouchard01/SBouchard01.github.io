@@ -1,0 +1,9 @@
+- name: Home
+  url: magic/
+- name: About
+  url: magic/#about
+- name: logo
+- name: Contact
+  url: magic/#contact
+- name: Shop
+  url: magic/shop

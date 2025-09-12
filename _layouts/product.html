@@ -1,0 +1,200 @@
+---
+layout: magic
+---
+<section class="section">
+    <div class="container">
+        <div class="content">
+            <h1 class="title is-3">{{ page.title | upcase }}</h1>
+            <p class="subtitle is-5">{{ page.author }}</p>
+
+            <div class="columns">
+                <div class="column is-two-fifths sticky">
+                    <div class="sticky">
+                        <div class="carrousel" data-time="80000">
+                            <div class="scroll-markers"></div>
+                            <div class="prev button is-small is-rounded" style="left: 0.5em; opacity: 0.7;">
+                                <span class="icon is-small">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                            </div>
+                            <div class="next button is-small is-rounded" style="right: 0.5em; opacity: 0.7;">
+                                <span class="icon is-small">
+                                    <i class="fas fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="slideshow">
+                                {% for image in page.images %}
+                                    <div class="slide hidden" id="slide-{{ forloop.index }}">
+                                        <figure class="image" style="background-color: rgb(60, 60, 60)">
+                                            <img src="{{ image.url }}" alt="{{ image.alt }}">
+                                        </figure>
+                                    </div>
+                                {% endfor %}
+                                {% for video in page.videos %}
+                                <div class="slide hidden" id="slide-{{ forloop.index | plus: page.images.size }}">
+                                    <figure class="image">
+                                        <iframe src="{{ video.url | replace: 'watch?v=', 'embed/' }}" frameborder="0" allowfullscreen></iframe>
+                                    </figure>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-three-fifths">
+                    <div class="content">
+                        {% if page.promo %}
+                        <p>
+                            <span class="is-size-1 has-text-weight-bold has-text-link">{{ page.promo }}</span>
+                            <br>
+                            <span class="is-size-3 has-text-weight-bold pl-1"><s>{{ page.price }}</s></span>
+                        </p>
+                        {% else %}
+                        <p class="is-size-1 has-text-weight-bold has-text-link">{{ page.price }}</p>
+                        {% endif %}
+
+                        {% if page.link == "direct" %}
+                            {% assign trigger_class = "js-modal-trigger" %}
+                            {% assign link = "javascript:void(0);" %}
+                            {% assign target = "_self" %}
+                        {% elsif page.link %}
+                            {% assign trigger_class = "" %}
+                            {% assign link = page.link %}
+                            {% assign target = "_blank" %}
+                        {% else %}
+                            {% assign trigger_class = "" %}
+                            {% assign link = "javascript:void(0);" %}
+                            {% assign target = "_self" %}
+                        {% endif %}
+                        
+                        {% if page.out-of-stock %}
+                        <a class="button is-large is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" target="{{ target }}" disabled>
+                            <span class="icon-text is-flex-wrap-nowrap" style="display: flex; align-items: center;">
+                                <span class="icon">
+                                    <i class="fas fa-box"></i>
+                                </span>
+                                <span data-i18n="Out of stock">Out of stock</span>
+                            </span>
+                        </a>
+                        {% elsif page.preorder %}
+                        <a class="button is-large is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" target="{{ target }}">
+                            <span class="icon-text is-flex-wrap-nowrap" style="display: flex; align-items: center;">
+                                <span class="icon is-medium">
+                                    <i class="far fa-clock"></i>
+                                </span>
+                                <span data-i18n="Pre-order">Pre-order</span>
+                            </span>
+                        </a>
+                        {% else %}
+                        <a class="button is-large is-link {{ trigger_class }}" data-target="direct-sell" href="{{ link }}" target="{{ target }}">
+                            <span class="icon-text is-flex-wrap-nowrap" style="display: flex; align-items: center;">
+                                <span class="icon">
+                                    <i class="fas fa-basket-shopping"></i>
+                                </span>
+                                <span data-i18n="Buy now">Buy now</span>
+                            </span>
+                        </a>
+                        {% endif %}
+
+                        <div class="tags mt-4">
+                        {% for category in page.categories %}
+                            <a class="tag" href="magic/shop/products/{{ category | downcase | slugify }}">{{ category }}</a>
+                        {% endfor %}
+                        </div>
+
+                        <details open>
+                            <summary class="is-size-5 has-text-weight-bold mt-4 mb-2" style="cursor: pointer; list-style: none;" data-i18n="Description">
+                                <div class="columns is-mobile is-vcentered">
+                                    <div class="column">
+                                        Description
+                                    </div>
+                                    <div class="column is-narrow is-size-4">
+                                        +
+                                    </div>
+                                </div>
+                                
+                                <hr>
+                            </summary>
+                            <p>{{ page.content }}</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if page.reviews %}
+<section class="hero has-text-centered">
+        
+    <h2 class="title is-4" data-i18n="Customer Reviews">Customer Reviews</h2>
+    
+    <div class="carrousel has-text-centered" style="width: 65vw;" data-time="8000">
+        <div class="scroll-markers"></div>
+        <div class="prev button is-rounded">
+            <span class="icon is-small">
+                <i class="fas fa-chevron-left"></i>
+            </span>
+        </div>
+        <div class="next button is-rounded">
+            <span class="icon is-small">
+                <i class="fas fa-chevron-right"></i>
+            </span>
+        </div>
+        <div class="slideshow">
+            {% for review in page.reviews %}
+            {% assign rating = review.rating %}
+            <div class="slide card" id="slide-{{ forloop.index }}">
+                <div class="card-content">
+                    <!-- <div class="content"> -->
+                        <p class="has-text-link mb-3">
+                            <span class="icon is-small">
+                                {% for i in (1..5) %}
+                                    {% if i <= rating %}
+                                        <i class="fas fa-star"></i>
+                                    {% else %}
+                                        <i class="far fa-star"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
+                        </p>
+                        <p class="is-size-5 mb-3">
+                            <i class="fas fa-quote-left"></i>
+                            {{ review.text }}
+                            <i class="fas fa-quote-right"></i>
+                        </p>
+                        <p class="is-size-7">
+                            <span class="has-text-weight-bold">{{ review.author }}</span>
+                        </p>
+                    <!-- </div> -->
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <br>
+</section>
+{% endif %}
+
+<div class="modal" id="direct-sell">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <div class="box content">
+            <p class="modal-card-title" data-i18n="Direct sale">Direct sale</p>
+            <p data-i18n="Direct sale message">This product is a direct sale. Send me a message if you're interested!</p>
+            <div class="buttons">
+                <a class="button is-success" href="magic/#contact">
+                    <span class="icon-text is-flex-wrap-nowrap">
+                        <span class="icon">
+                            <i class="fa-solid fa-comment-dots"></i>
+                        </span>
+                        <span data-i18n="Get in touch">Get in touch</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>

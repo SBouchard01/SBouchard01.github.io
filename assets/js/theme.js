@@ -11,6 +11,7 @@ function updateTheme(theme) {
 async function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    console.log(`Toggling theme from ${currentTheme} to ${newTheme}`);
     updateTheme(newTheme);
 }
 

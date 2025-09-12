@@ -1,3 +1,6 @@
+// Define fallback language code
+const fallback_lang = "fr"
+
 // Function to update content based on selected language
 function updateContent(langData) {
     document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -78,7 +81,7 @@ async function changeLanguage(lang) {
 
 // Call updateContent() on page load
 window.addEventListener('DOMContentLoaded', async () => {
-    const userPreferredLanguage = localStorage.getItem('language') || 'en';
+    const userPreferredLanguage = localStorage.getItem('language') || fallback_lang;
     const langData = await fetchLanguageData(userPreferredLanguage);
     updateContent(langData);
     hideLanguageClasses(userPreferredLanguage);

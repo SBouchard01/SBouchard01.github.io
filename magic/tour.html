@@ -1,0 +1,78 @@
+---
+layout: magic
+title: Tour and Events
+---
+
+<section class="section">
+    <div class="container">
+        <div class="content">
+            <p class="title is-2" data-i18n="Upcoming Shows and Events">Upcoming Shows and Events</p>
+            <div class="grid is-col-min-12">
+                {% assign event_counter = 0 %}
+                {% for event in site.tour %}
+                {% capture now %}{{ 'now' | date: "%s" }}{% endcapture %}
+                {% capture event_date %}{{ event.date | date: "%s" }}{% endcapture %}
+                {% unless event_date < now %}
+                {% assign event_counter = event_counter | plus: 1 %}
+                <div class="cell">
+                    <div class="card" style="height: 100%;">
+                        <div class="card-content">
+                            <p class="title is-5">
+                                {{ event.title }}{% if event.country %}, {{ event.country }}{% endif %}
+                                {% if event.department %}({{ event.department }}){% endif %}
+                            </p>
+                            <p class="subtitle is-6">{{ event.date | date: "%B %d, %Y" }}</p>
+                            <div class="container has-text-centered">
+                                <p class="is-size-7">
+                                    <span class="has-text-weight-bold">{{ event.venue }}</span>
+                                    <br>
+                                    <span>{{ event.address | newline_to_br }}</span>
+                                </p>
+                                <p>
+                                    {% if event.link == "soon" %}
+                                    <a class="button is-link" style="width: 60%;" disabled>
+                                        <span class="icon-text">
+                                            <span class="icon">
+                                                <i class="fas fa-ticket"></i>
+                                            </span>
+                                            <span data-i18n="Coming Soon">Coming Soon</span>
+                                        </span>
+                                    </a>
+                                    {% elsif event.link == "full" %}
+                                    <a class="button is-link" style="width: 60%;" disabled>
+                                        <span class="icon-text">
+                                            <span class="icon">
+                                                <i class="fas fa-ticket"></i>
+                                            </span>
+                                            <span data-i18n="Full">Full</span>
+                                        </span>
+                                    </a>
+                                    {% elsif event.link %}
+                                    <a class="button is-link" style="width: 60%;" href="{{ event.link }}" target="_blank">
+                                        <span class="icon-text">
+                                            <span class="icon">
+                                                <i class="fas fa-ticket"></i>
+                                            </span>
+                                            <span data-i18n="Book">Book</span>
+                                        </span>
+                                    </a>
+                                    {% else %}
+                                    <!-- For the spacing -->
+                                    <span class="button" style="visibility: hidden;">&nbsp;</span>
+                                    {% endif %}
+                                </p>
+                                <p class="is-size-7 has-text-weight-bold has-text-link">{{ event.type | upcase }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endunless %}
+                {% endfor %}
+                
+                {% if event_counter == 0 %}
+                <p class="subtitle" data-i18n="No upcoming events">No upcoming events, please check back later.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

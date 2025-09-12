@@ -1,0 +1,13 @@
+- value : 10+
+  name: Years of experience
+  icon: fas fa-medal
+- value: 8+
+  name: Collaborations with magicians
+  icon: fas fa-users
+- value: 10+
+  name: Magic styles mastered
+  # icon: fas fa-hat-wizard
+  icon: fas fa-theater-masks
+- value: 2
+  name: Languages spoken
+  icon: fas fa-comments

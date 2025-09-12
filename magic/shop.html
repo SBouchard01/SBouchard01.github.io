@@ -1,0 +1,38 @@
+---
+layout: magic
+title: Shop
+redirect_from: shop/products/
+---
+
+<section class="section">
+    <div class="container">
+        <div class="content has-text-centered">
+            <h1 class="title is-2" data-i18n="Shop">Shop</h1>
+            <p class="subtitle is-5" data-i18n="Shop subtitle">Some cool magic things I worked on!</p>
+
+            {% include product_grid.html loop_on=site.products %}
+
+        </div>
+    </div>
+</section>
+
+<div class="modal" id="direct-sell">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <div class="box content">
+            <p class="modal-card-title" data-i18n="Direct sale">Direct sale</p>
+            <p data-i18n="Direct sale message">This product is a direct sale. Send me a message if you're interested!</p>
+            <div class="buttons">
+                <a class="button is-success" href="magic/#contact">
+                    <span class="icon-text is-flex-wrap-nowrap">
+                        <span class="icon">
+                            <i class="fa-solid fa-comment-dots"></i>
+                        </span>
+                        <span data-i18n="Get in touch">Get in touch</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>

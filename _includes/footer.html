@@ -1,0 +1,48 @@
+<footer class="footer">
+<!-- <div class="container"> -->
+    <div class="level">
+        <div class="level-left">
+            <div class="level-item">
+                <!-- Not translated on purpose ? -->
+                <p class="subtitle is-7">{{ site.footer }}</p>
+            </div>
+        </div>
+
+        <div class="level-item" id="social-icons">
+            {% for item in site.data.social %}
+            <div class="level-item"> 
+                <span class="icon is-medium">
+                    <a class="has-text-text" href="{{ item.url }}" target="_blank">
+                        <i class="fa-brands fa-lg {{ item.icon }}"></i>
+                    </a>
+                </span>    
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="level-right">
+            <div class="level-item">
+                <div class="dropdown is-up is-right">
+                    <div class="dropdown-trigger">
+                        <button class="button">
+                            <span data-i18n="lang">English</span>
+                            <span class="icon is-small">
+                                <i class="fas fa-angle-up"></i>
+                            </span>
+                        </button>
+                    </div>
+                    
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <div class="dropdown-content">
+                            {% for lang in site.data.lang %}
+                                <a class="dropdown-item" onclick="changeLanguage('{{ lang.code }}')">{{ lang.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="is-hidden-touch"> &nbsp;</span>
+        </div>
+    </div>
+<!-- </div> -->
+</footer>

@@ -1,0 +1,13 @@
+- title: Consulting
+  description: ""
+  icon: fas fa-chalkboard-teacher
+- title: Close-Up Magic
+  description: ""
+  icon: fas fa-martini-glass
+- title: Digital Magic
+  description: ""
+  icon: fas fa-tablet-alt
+- title: Impromptu Magic
+  description: ""
+  icon: fas fa-hand-paper
+  # icon: fas fa-ring
