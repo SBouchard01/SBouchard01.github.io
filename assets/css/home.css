@@ -7,7 +7,7 @@
     --button-y-translation: 5px; /* Default translation for button click */
 
     --left-image: url('https://storage.noirlab.edu/media/archives/images/wallpaper1/noirlab2408a.jpg');
-    --right-image: url('https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg');
+    --right-image: url('/assets/img/magic_backdrop.jpg');
 }
 
 html {
@@ -293,7 +293,7 @@ a:visited {
 .right {
     right: 0;
     background-image: var(--right-image);
-    box-shadow: inset 0 0 0 1000px  rgba(var(--right-default-color), 0.5);
+    box-shadow: inset 0 0 0 1000px  rgba(var(--right-default-color), 0.35);
 }
 
 .right:hover { /* Hover effect */

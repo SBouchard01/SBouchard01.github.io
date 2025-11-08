@@ -4,7 +4,7 @@ title: Magic
 ---
 
 <!-- Intro Hero with image -->
-<section class="hero is-large is-dark" style="background-image: url('https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat;">
+<section class="hero is-large is-dark" style="background-image: url('/assets/img/magic_backdrop.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat;">
     <div class="hero-body" style="background-color: rgba(0, 0, 0, 0.5);; backdrop-filter: blur(1px);">
         <div class="container has-text-centered">
             <p class="title is-1 mb-2" data-i18n="Home title">Discover my work in magic</p>
@@ -227,7 +227,7 @@ title: Magic
                                     <div class="field">
                                         <label class="label" data-i18n="Name *">Name *</label>
                                         <div class="control">
-                                            <input class="input" type="text" placeholder="e.g Alex Smith">
+                                            <input name="name" class="input" type="text" placeholder="e.g Alex Smith" required>
                                         </div>
                                         <p class="help" data-i18n="This field is mandatory">This field is mandatory</p>
                                     </div>
@@ -236,7 +236,7 @@ title: Magic
                                     <div class="field">
                                         <label class="label" data-i18n="Email *">Email *</label>
                                         <div class="control">
-                                            <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                                            <input name="email" class="input" type="email" placeholder="e.g. alexsmith@gmail.com" required>
                                         </div>
                                         <p class="help" data-i18n="This field is mandatory">This field is mandatory</p>
                                     </div>
@@ -245,7 +245,7 @@ title: Magic
                                     <div class="field">
                                         <label class="label" data-i18n="Phone number">Phone number</label>
                                         <div class="control">
-                                            <input class="input" type="text" placeholder="e.g. +1 234 567 890">
+                                            <input name="phone" class="input" type="text" placeholder="e.g. +1 234 567 890">
                                         </div>
                                     </div>
                                 </div>
@@ -254,10 +254,10 @@ title: Magic
                                         <label class="label" data-i18n="Event type">Event type</label>
                                         <p class="control is-expanded">
                                             <div class="select is-fullwidth">
-                                                <select>
+                                                <select name="event_type">
                                                     <option data-i18n="Select an option">Select an option</option>
-                                                    {% for prestation in prestations %}
-                                                    <option data-i18n="{{ prestation.name }}/name">{{ prestation.name }}</option>
+                                                    {% for prestation in site.data.prestations %}
+                                                    <option data-i18n="{{ prestation.title }}/title">{{ prestation.title }}</option>
                                                     {% endfor %}
                                                 </select>
                                             </div>
@@ -268,7 +268,7 @@ title: Magic
                                     <div class="field">
                                         <label class="label" data-i18n="Date">Date</label>
                                         <div class="control is-expanded">
-                                            <input class="input is-fullwidth" type="date">
+                                            <input name="date" class="input is-fullwidth" type="date">
                                         </div>
                                     </div>
                                 </div>
@@ -276,7 +276,7 @@ title: Magic
                                     <div class="field">
                                         <label class="label" data-i18n="Message *">Message *</label>
                                         <div class="control">
-                                            <textarea class="textarea is-fullwidth" placeholder="Write your message here..."></textarea>
+                                            <textarea name="message" class="textarea is-fullwidth" placeholder="Write your message here..." required></textarea>
                                         </div>
                                         <p class="help" data-i18n="This field is mandatory">This field is mandatory</p>
                                     </div>
@@ -285,7 +285,7 @@ title: Magic
                                     <div class="field">
                                         <div class="control">
                                             <label class="checkbox">
-                                                <input type="checkbox">
+                                                <input type="checkbox" name="terms" required>
                                                     <span data-i18n="I agree to the terms and conditions">
                                                         I agree to the <a href="#">terms and conditions</a>
                                                     </span>
@@ -297,7 +297,7 @@ title: Magic
                                     <div class="field">
                                         <div class="control">
                                             <label class="checkbox">
-                                                <input type="checkbox">
+                                                <input type="checkbox" name="subscribe">
                                                     <span data-i18n="I want to receive updates via email">
                                                         I want to receive updates via email
                                                     </span>
