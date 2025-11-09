@@ -15,7 +15,7 @@
         var(--width) * var(--imageQuantity) * 2
     ); /* Double the width for seamless looping */
     gap: calc(var(--width) / 4);
-    animation: autoScroll 30s linear infinite;
+    animation: autoScroll 20s linear infinite;
 }
 
 .slider .list:hover {
@@ -40,7 +40,7 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-1 * var(--width) * var(--imageQuantity)));
+        transform: translateX(calc(-1 * var(--width) * var(--imageQuantity) * (1 + 1 / 4)));
     }
 }
 
