@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (element.slide_number === 0) {
             console.warn("No slides found in ", element);
             element.classList.add('is-hidden');
-            return;
         }
 
         // Set the slideshow markers
@@ -70,6 +69,19 @@ document.addEventListener("DOMContentLoaded", function() {
             slideshow.addEventListener('touchmove', (event) => {
                 event.preventDefault();
             });
+        });
+
+        // add keyboard event listeners if parent elemnt is focused or mouse is over it
+        element.setAttribute('tabindex', '0');
+        element.addEventListener('mouseenter', () => {
+            element.focus();
+        });
+        element.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                gotoSlide(element, element.current_slide - 1, manual = true);
+            } else if (event.key === 'ArrowRight') {
+                gotoSlide(element, element.current_slide + 1, manual = true);
+            }
         });
 
         // Auto slide

@@ -98,3 +98,7 @@
     right: 0;
     padding: 0.5em;
 }
+
+.carrousel[tabindex] {
+   outline: none !important;
+}
